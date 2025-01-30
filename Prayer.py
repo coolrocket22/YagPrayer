@@ -77,7 +77,7 @@ with st.container():
                      selection_mode="single-row",
                      )
 
-        if st.checkbox('Show inactive prayer requests'):
+        if st.checkbox('Show expired prayer requests'):
             df_sorted_inactive = df[df['Expiry date'] < today].sort_values(by='Date submitted', ascending=False)
             st.dataframe(df_sorted_inactive, use_container_width=True)
 
