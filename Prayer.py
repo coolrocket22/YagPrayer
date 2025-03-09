@@ -195,17 +195,17 @@ with st.container():
         def generate_whatsapp_message(df):
             if df.empty:
                 return "No active prayer requests currently"
-            message = ["🌟 *YAG Prayer Update* 🌟\n"]
+            message = ["🌟 *Prayer Intentions* 🌟\n"]
             message.append(f"Date: {datetime.now().date()}\n")
 
             # Weekly rotating rosary mysteries
             mysteries = ["Sorrowful", "Glorious", "Joyful", "Luminous"]
             current_week = datetime.now().isocalendar()[1]
             current_mystery = mysteries[current_week % 4]
-            message.append(f"🌹 This Week's Rosary Mystery: {current_mystery}")
-            message.append("Active Prayer Requests:\n")
+            message.append(f"🌹 This Week's Rosary Mystery: {current_mystery}\n")
+            message.append("Active Prayer Requests:")
             for _, row in df.iterrows():
-                message.append(f"🙏 {row['Name']} - {row['Prayer']}\n")
+                message.append(f"🙏 {row['Name']} - {row['Prayer']}")
             return "\n".join(message)
 
         # Recalculate active prayers to ensure scope accessibility
